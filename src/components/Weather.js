@@ -13,7 +13,7 @@ const Weather = () => {
             setWeatherData(data);
             setError('');
         } catch (err) {
-            setError('City not found');
+            setError(err.response ? err.response.data.message : 'City not found');
             setWeatherData(null);
         }
     };

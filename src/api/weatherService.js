@@ -8,7 +8,7 @@ export const fetchWeatherData = async (city) => {
         const response = await axios.get(`${BASE_URL}?q=${city}&appid=${API_KEY}&units=metric`);
         return response.data;
     } catch (error) {
-        console.error("Error fetching weather data:", error);
+        console.error("Error fetching weather data:", error.response ? error.response.data : error.message);
         throw error;
     }
 };
